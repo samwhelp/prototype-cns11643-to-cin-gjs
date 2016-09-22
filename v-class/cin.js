@@ -1183,14 +1183,27 @@ if (!String.fromCodePoint) {
 
 				},
 
-
-				orderBy_Phonetic: function(a, b) {
-					//print(a);
-					//print(a.phonetic_keyseq.localeCompare(b.phonetic_keyseq));
+				orderBy_PhoneticKeySeq: function(a, b) {
+					//console.log(a);
+					//console.log(a.phonetic_keyseq.localeCompare(b.phonetic_keyseq));
 					//return a.phonetic_keyseq.localeCompare(b.phonetic_keyseq);
 
 					var aa = a.phonetic_keyseq + '-' + a.grp + '-' + a.cns;
 					var bb = b.phonetic_keyseq + '-' + b.grp + '-' + b.cns;
+
+					return aa.localeCompare(bb);
+
+					//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+					//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+				},
+
+				orderBy_Phonetic: function(a, b) {
+					//console.log(a);
+					//console.log(a.phonetic.localeCompare(b.phonetic));
+					//return a.phonetic.localeCompare(b.phonetic);
+
+					var aa = a.phonetic + '-' + a.grp + '-' + a.cns;
+					var bb = b.phonetic + '-' + b.grp + '-' + b.cns;
 
 					return aa.localeCompare(bb);
 
@@ -1210,7 +1223,7 @@ if (!String.fromCodePoint) {
 					csv += this.makLine_Csv_Head();
 
 
-					this._PhoneticList.sort(this.orderBy_Phonetic);
+					this._PhoneticList.sort(this.orderBy_PhoneticKeySeq);
 
 					for (var item of this._PhoneticList) {
 						char_def += this.makLine_CharDef(item);
