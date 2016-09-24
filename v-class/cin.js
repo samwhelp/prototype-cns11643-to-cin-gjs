@@ -1362,7 +1362,7 @@ if (!String.fromCodePoint) {
 					return rtn;
 				},
 
-				makLine_Csv_Head: function(item) {
+				makLine_Csv_Head: function() {
 					var rtn = '';
 					rtn += util.QUOTE;
 					rtn += '鍵盤按鍵';
