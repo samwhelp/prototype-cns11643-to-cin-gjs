@@ -127,11 +127,6 @@ if (!String.fromCodePoint) {
 					//https://www.roojs.com/seed/gir-1.2-gtk-3.0/gjs/GLib.html
 
 
-					if (this._Content === null) {
-						this._Content = this.defContent();
-					}
-
-
 					try {
 					    let ok = GLib.file_set_contents(this._Path, this._Content);
 						if (!ok) {
