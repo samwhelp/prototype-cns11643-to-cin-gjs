@@ -327,6 +327,11 @@ if (!String.fromCodePoint) {
 
 				},
 
+				loadFile: function(path) {
+					var text = this.readFile(path);
+					this.parseText(text, path);
+				},
+
 				readFile: function(path) {
 					//https://people.gnome.org/~gcampagna/docs/GLib-2.0/
 					//https://people.gnome.org/~gcampagna/docs/GLib-2.0/GLib.file_get_contents.html
@@ -346,11 +351,6 @@ if (!String.fromCodePoint) {
 					}
 
 					return '';
-				},
-
-				loadFile: function(path) {
-					var text = this.readFile(path);
-					this.parseText(text, path);
 				},
 
 				parseText: function(text, file) {
@@ -488,6 +488,11 @@ if (!String.fromCodePoint) {
 
 				},
 
+				loadFile: function(path) {
+					var text = this.readFile(path);
+					this.parseText(text, path);
+				},
+
 				readFile: function(path) {
 					//https://people.gnome.org/~gcampagna/docs/GLib-2.0/
 					//https://people.gnome.org/~gcampagna/docs/GLib-2.0/GLib.file_get_contents.html
@@ -509,11 +514,6 @@ if (!String.fromCodePoint) {
 					return '';
 				},
 
-				loadFile: function(path) {
-					var text = this.readFile(path);
-					this.parseText(text, path);
-				},
-
 				parseText: function(text, file) {
 
 					var list = text.split("\n");
@@ -524,7 +524,7 @@ if (!String.fromCodePoint) {
 						line++;
 
 						str = str.trim();
-						if (line.length <= 0) {
+						if (str.length <= 0) {
 							continue;
 						}
 
@@ -548,7 +548,7 @@ if (!String.fromCodePoint) {
 
 				createUrl: function(cns, grp) {
 					//http://www.cns11643.gov.tw/AIDB/query_general_view.do?page=1&code=4421
-					var rtn = ''
+					var rtn = '';
 					rtn += 'http://www.cns11643.gov.tw/AIDB/query_general_view.do';
 					rtn += '?page=' + grp;
 					rtn += '&code=' + cns;
