@@ -27,7 +27,7 @@ if (!String.fromCodePoint) {
 /*! https://mths.be/fromcodepoint v0.2.1 by @mathias */
 //https://github.com/mathiasbynens/String.fromCodePoint/blob/master/fromcodepoint.js
 if (!String.fromCodePoint) {
-	(function() {
+	;(function() {
 		var defineProperty = (function() {
 			// IE 8 only supports `Object.defineProperty` on DOM elements
 			try {
@@ -36,7 +36,7 @@ if (!String.fromCodePoint) {
 				var result = $defineProperty(object, object, object) && $defineProperty;
 			} catch(error) {}
 			return result;
-		}());
+		})();
 		var stringFromCharCode = String.fromCharCode;
 		var floor = Math.floor;
 		var fromCodePoint = function(_) {
@@ -85,10 +85,10 @@ if (!String.fromCodePoint) {
 		} else {
 			String.fromCodePoint = fromCodePoint;
 		}
-	}());
+	})();
 }
 
-!function() {
+;(function() {
 	print('start');
 
 
@@ -1455,4 +1455,4 @@ if (!String.fromCodePoint) {
 	;
 
 	print('end');
-}();
+})();
